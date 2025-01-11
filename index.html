@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en" class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="assets/img/favicon.png">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Hướng dẫn tải app J88">
+    <link rel="apple-touch-icon" href="assets/img/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <title>J88 HƯỚNG DẪN TẢI APP</title>
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body id="body">
+    <div class="nutback">
+
+         <button  onclick="window.history.back();">
+
+            <img src="assets/img/back-01.png">
+        </button>
+
+	</div>
+    <div class="header-wrapper">
+
+        <div class="logo" > <img src="assets/img/logo-j88.png"></div>
+        <div class="tieude "><img src="assets/img/title.png"> </div>
+
+
+
+    </div>
+
+
+    <div id="container">
+       
+        <a href="download/appj88.apk" class="banner"><img src="assets/img/hd2.png"></a>
+        <a href="download/J88.mobileconfig" class="banner"><img src="assets/img/tai-app-ios.png"></a>
+        <a class="open-popup-btn banner" data-popup-target="popup-1"><img src="assets/img/tai-app-ios j88.png"></a>
+
+    </div>
+
+
+
+    <!-- Popup 1 安装说明-->
+    <div class="popup-overlay" id="popup-1" style="display:none;">
+        <div class="popup-content"> <button class="close-popup-btn">X</button>
+			<div class="anh">
+                <img class="huongdan hdmb" src="assets/img/hdios.png">
+                <img class="huongdan hdpc" src="assets/img/hd-mbz.png">
+			</div>
+        </div>
+    </div>
+
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var openPopupButtons = document.querySelectorAll('.open-popup-btn');
+            var closePopupButtons = document.querySelectorAll('.close-popup-btn');
+            var popupOverlays = document.querySelectorAll('.popup-overlay');
+
+            // Mở popup tương ứng
+            openPopupButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    var popupId = button.getAttribute('data-popup-target');
+                    var popup = document.getElementById(popupId);
+                    popup.style.display = 'flex';
+                });
+            });
+
+            // Đóng popup và tạm dừng video (nếu có)
+            closePopupButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    var popup = this.closest('.popup-overlay');
+                    popup.style.display = 'none';
+                    // Tạm dừng video khi đóng popup
+                    var videos = popup.getElementsByTagName('video');
+                    if (videos.length > 0) {
+                        videos[0].pause();
+                    }
+                });
+            });
+
+            // Đóng popup khi click ra ngoài nội dung popup và tạm dừng video
+            popupOverlays.forEach(overlay => {
+                overlay.addEventListener('click', function(event) {
+                    if (event.target === overlay) {
+                        overlay.style.display = 'none';
+                        // Tạm dừng video khi đóng popup
+                        var videos = overlay.getElementsByTagName('video');
+                        if (videos.length > 0) {
+                            videos[0].pause();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
